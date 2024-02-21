@@ -11,7 +11,8 @@ interface Props {
 
 const GameGrid = ({ selectedGenre }: Props) => {
   const { data, error, isLoading } = useGames(selectedGenre);
-  const skeletons = 10;
+  const skeletons = 15;
+
   return (
     <>
       {error && <Text>{error}</Text>}

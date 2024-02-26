@@ -15,6 +15,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import { gameQueryContext } from "./context/gameQuery-context";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -39,14 +40,14 @@ function App() {
         }}
       >
         <GridItem area="nav">
-          <NavBar
-            base={useBreakpointValue({ base: true, lg: false }) as boolean}
-            onSearch={(searchText) =>
-              setGameQuery({ ...gameQuery, searchText })
-            }
-            gameQuery={gameQuery}
-            setGameQuery={setGameQuery}
-          />
+          <gameQueryContext.Provider value={{ gameQuery, setGameQuery }}>
+            <NavBar
+              base={useBreakpointValue({ base: true, lg: false }) as boolean}
+              onSearch={(searchText) =>
+                setGameQuery({ ...gameQuery, searchText })
+              }
+            />
+          </gameQueryContext.Provider>
         </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>

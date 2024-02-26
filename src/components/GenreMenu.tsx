@@ -8,15 +8,12 @@ import {
 } from "@chakra-ui/react";
 import { TiThMenu } from "react-icons/ti";
 import GenreList from "./GenreList";
-import { GameQuery } from "../App";
+import { useContext } from "react";
+import { gameQueryContext } from "../context/gameQuery-context";
 
-interface Props {
-  gameQuery: GameQuery;
-  setGameQuery: (gameQuery: GameQuery) => void;
-}
-
-const GenreMenu = ({ gameQuery, setGameQuery }: Props) => {
+const GenreMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { gameQuery, setGameQuery } = useContext(gameQueryContext);
 
   return (
     <>

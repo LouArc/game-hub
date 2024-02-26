@@ -3,9 +3,7 @@ import {
   Flex,
   Grid,
   GridItem,
-  HStack,
   Show,
-  useBreakpoint,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";

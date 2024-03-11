@@ -6,6 +6,7 @@ import {
   Show,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { Analytics } from "@vercel/analytics/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <>
+      <Analytics />
       <Grid
         templateAreas={{
           base: `"nav" "main"`,
